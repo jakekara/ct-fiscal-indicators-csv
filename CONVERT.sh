@@ -22,8 +22,8 @@ convert()
     # sqlite3 $1.sqlite < $1_SCHEMA.sql
 }
 
-rm data/*.sql*
-rm data/*_TABLES
+rm -f data/*.sql*
+rm -f data/*_TABLES
 rm -rf data/*_CSV
 
 for fname in data/*.mdb
