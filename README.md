@@ -1,5 +1,7 @@
 # Converted fiscal indicators Access databases to CSVs
 
+The goods are in the /data folder
+
 #### Sourece mdb files:
 
 http://www.ct.gov/opm/cwp/view.asp?A=2984&Q=383170
