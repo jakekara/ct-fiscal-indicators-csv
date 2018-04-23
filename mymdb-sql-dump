@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#
+# Create a sqlite db from access db
+#
+ 
+. ./mymdb-dump-from-db.sh
+
+dump_tables "$1" "$2" "sql" '-I mysql'
+
+# write a schema file
+mdb-schema "$1" > "$2-schema.sql"
+
+# Create a database
+cat $2-schema.sql | sed -e 's/\///g' | sqlite3 $2.sqlite
+
+# Import files
+for f in $2/*.sql; do
+    echo IMPORTING "$f"
+    cat "$f" | sed -e 's/\///g' | sqlite3 $2.sqlite
+done
+
+# Delete sql files
+# rm $2-schema.sql
+rm -rf $2
+    
+
+
+
+

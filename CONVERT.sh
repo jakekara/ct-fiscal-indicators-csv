@@ -28,7 +28,8 @@ rm -rf data/*_CSV
 
 for fname in data/*.mdb
 do
-    convert ${fname%.*}
+    echo $fname
+    convert "${fname%.*}"
 done
 
 # convert data/MuniFiscalIndicators_11_15

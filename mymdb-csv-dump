@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#
+# mdb-csv-dump - shell script to use mdbtools to dump all tables to a
+#                directory full of CSVs
+# jake kara
+# jake@jakekara.com
+# github.com/jakekara/ct-fiscal-indicators/
+#
+# USAGE
+# =====
+# usage: mdb-csv-dump INPUT_MDB_FILE OUTPUT_DIR
+#
+# Warning - this will create or completely overwrite OUTPUT_DIR
+#           if it already exists
+#
+# BACKGROUND
+# ==========
+#
+# Originally made to convert CT Fiscal Indicators MDB database to
+# spreadsheets, but works fro general purposes
+#
+# Data available here:
+# http://www.ct.gov/opm/cwp/view.asp?A=2984&Q=383170
+#
+# mdbtools available here:
+# https://github.com/brianb/mdbtools
+#
+
+. ./mymdb-dump-from-db.sh
+
+dump_tables "$1" "$2" "csv" '-q \"'
